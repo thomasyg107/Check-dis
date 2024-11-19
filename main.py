@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import requests
+from myserver import server_on
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -256,5 +257,7 @@ async def check_by_ip(ctx, server_ip: str, player_id: str):
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name} (ID: {bot.user.id})')
+    
+server_on()
 
 bot.run('TOKEN')
